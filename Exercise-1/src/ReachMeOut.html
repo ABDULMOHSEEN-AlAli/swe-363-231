@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reach Me Out</title>
+  </head>
+  <body>
+    <main>
+      <h1>Projects ideas submiton form</h1>
+      <form action="/src/ProjectIdeaSupmted.html">
+        <!-- dataList -->
+        <datalist id="Cities">
+          <option value="Riyadh"></option>
+          <option value="Jeddah"></option>
+          <option value="Mecca "></option>
+          <option value="Medina"></option>
+          <option value="Dammam"></option>
+          <option value="Khobar"></option>
+          <option value="Abha"></option>
+          <option value="Tabuk"></option>
+          <option value="Najran"></option>
+        </datalist>
+
+        <!-- Question number 1 -->
+        <h3>What is the name of the project</h3>
+        <input
+          type="text"
+          name="name"
+          placeholder="Project name"
+          autocomplete="name"
+        />
+        <br />
+
+        <!-- Question number 2 -->
+        <h3>What is the main idea of the project</h3>
+        <input
+          type="text"
+          name="mainIdea"
+          placeholder="Main idea"
+          autocomplete="on"
+        />
+        <br />
+
+        <!-- Question number 3 -->
+        <h3>
+          Why do you think this idea will be successful, and if you have
+          competitors, what makes you better than them?
+        </h3>
+        <input
+          type="text"
+          name="Advantages"
+          placeholder="Say someting"
+          autocomplete="on"
+        />
+        <br />
+
+        <!-- Question number 4 -->
+        <h3>How much do you think this project will cost?</h3>
+        <input
+          type="number"
+          name="cost"
+          placeholder="2300 SR"
+          autocomplete="on"
+        />
+        <br />
+
+        <!-- Question number 5 -->
+        <h3>Where are you form?</h3>
+        <input
+          type="text"
+          name="City"
+          placeholder="City name"
+          autocomplete="on"
+          list="Cities"
+        />
+        <br />
+
+        <!-- Question number 6 -->
+        <h3>Enter your Email</h3>
+        <input
+          type="email"
+          name="email"
+          placeholder="Example@gmail.com"
+          autocomplete="on"
+        />
+        <br />
+        <input type="submit" value="Project information" />
+      </form>
+    </main>
+  </body>
+</html>
