@@ -1,0 +1,21 @@
+a {
+  color: green;
+}
+
+thead {
+  text-transform: uppercase;
+}
+
+.top {
+  background-color: #ff5733;
+}
+
+em {
+  background-color: blue;
+}
+
+#first_em {
+  background-color: gold;
+  color: black;
+  text-transform: uppercase;
+}
