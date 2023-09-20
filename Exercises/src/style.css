@@ -14,8 +14,71 @@ em {
   background-color: blue;
 }
 
-#first_em {
+#the_most_important {
   background-color: gold;
   color: black;
   text-transform: uppercase;
+}
+
+h2 {
+  font-family: sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+
+h2 + p {
+  font-size: x-large;
+}
+
+tr:hover {
+  background-color: darkgray;
+}
+
+nav li {
+  display: inline;
+}
+
+tr:nth-child(2) td:nth-child(2) {
+  background-color: cornflowerblue;
+}
+
+tr:nth-child(3) td:nth-child(3) {
+  background-color: darkslategrey;
+}
+
+tr:nth-child(4) td:last-child {
+  background-color: rgb(112, 74, 74);
+}
+
+nav li a {
+  text-decoration: none;
+  border-bottom: 1px;
+}
+
+nav li:first-child {
+  text-decoration: underline;
+}
+
+::selection {
+  color: #e9b824;
+  background: #888377b8;
+}
+
+body a:hover {
+  cursor: pointer;
+}
+
+input {
+  height: 20px;
+  border-color: lightgray;
+}
+
+#message {
+  height: 50px;
 }
