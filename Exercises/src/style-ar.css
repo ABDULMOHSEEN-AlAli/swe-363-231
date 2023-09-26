@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Space+Grotesk:wght@500;700&family=Tajawal:wght@200;300;400;500;700;800&display=swap");
 a {
   color: green;
 }
@@ -22,7 +22,8 @@ em {
 }
 
 h2 {
-  font-family: sans-serif;
+  font-family: Tajawal;
+  font-weight: 700;
 }
 h1,
 h2,
@@ -41,6 +42,10 @@ tr:hover {
   background-color: darkgray;
 }
 
+nav li {
+  display: inline;
+}
+
 tr:nth-child(2) td:nth-child(2) {
   background-color: cornflowerblue;
 }
@@ -55,9 +60,7 @@ tr:nth-child(4) td:last-child {
 
 nav li a {
   text-decoration: none;
-}
-nav li {
-  display: inline;
+  border-bottom: 1px;
 }
 
 nav li:first-child {
@@ -82,8 +85,7 @@ input {
   height: 50px;
 }
 * {
-  font-family: Space Grotesk;
-  font-weight: 700;
+  font-family: Tajawal;
 }
 p {
   text-align: center;
@@ -91,45 +93,4 @@ p {
   font-weight: 500;
   line-height: 26px;
   color: #d9d9d9;
-}
-
-button {
-  transition: background-color 1s ease;
-}
-
-button:hover {
-  background-color: #4ee1a0;
-}
-
-nav li a {
-  color: #151515;
-  display: inline;
-}
-
-nav li:nth-child(1) a {
-  transition-property: 500ms;
-}
-
-nav li:nth-child(2) a {
-  transition-duration: 1000ms;
-}
-
-nav li:nth-child(3) a {
-  transition-duration: 1500ms;
-}
-
-nav li:nth-child(4) a {
-  transition-duration: 2000ms;
-}
-
-nav li:nth-child(5) a {
-  transition-duration: 2500ms;
-}
-
-nav li:nth-child(6) a {
-  transition-duration: 3000ms;
-}
-
-nav:hover li a {
-  color: green;
 }
