@@ -133,3 +133,8 @@ nav li:nth-child(6) a {
 nav:hover li a {
   color: green;
 }
+
+#sideInfo {
+  position: relative;
+  right: 10px;
+}

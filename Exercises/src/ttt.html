@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .cell {
+        font-family: sans-serif;
+        font-size: larger;
+        font-weight: bolder;
+        background-color: beige;
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cell:hover {
+        background-color: blanchedalmond;
+      }
+
+      .row {
+        display: flex;
+      }
+
+      .restart {
+        font-family: sans-serif;
+        font-size: larger;
+        font-weight: bolder;
+        background-color: beige;
+        width: 300;
+        height: 100px;
+        border: 1px solid black;
+        text-align: center;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .restart:hover {
+        background-color: blanchedalmond;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="turn">Now it's is X turn</h1>
+    <!-- Board -->
+    <div class="board">
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="restart">reset</div>
+
+      <script>
+        // decided which turn is it
+        let turn = "X";
+        let gameEnded = 0;
+        let winner = "";
+
+        const winningCombinations = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8], // Rows
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8], // Columns
+          [0, 4, 8],
+          [2, 4, 6], // Diagonals
+        ];
+
+        // when we click on a cell add the letter
+        let board = document.getElementsByClassName("board")[0];
+        board.addEventListener("click", cellClicked);
+
+        let restart = document.getElementsByClassName("restart")[0];
+        restart.addEventListener("click", restartBoard);
+
+        function cellClicked(event) {
+          let cell = event.target;
+
+          if (cell.innerText === "" && !winner) {
+            cell.innerText = turn;
+            if (turn === "X") {
+              cell.style.backgroundColor = "#D7E5CA";
+            } else {
+              cell.style.backgroundColor = "#D2E0FB";
+            }
+            turn = turn === "X" ? "O" : "X";
+            checkWinner();
+          }
+
+          // Function to check for a winner
+          function checkWinner() {
+            let cells = document.querySelectorAll(".cell");
+
+            for (const combination of winningCombinations) {
+              const [a, b, c] = combination;
+              if (
+                cells[a].innerText !== "" &&
+                cells[a].innerText === cells[b].innerText &&
+                cells[a].innerText === cells[c].innerText
+              ) {
+                winner = cells[a].innerText; // Return the winning player (either "X" or "O")
+                gameEnded = 1;
+              } else if (
+                cells[0].innerText !== "" &&
+                cells[1].innerText !== "" &&
+                cells[2].innerText !== "" &&
+                cells[3].innerText !== "" &&
+                cells[4].innerText !== "" &&
+                cells[5].innerText !== "" &&
+                cells[6].innerText !== "" &&
+                cells[7].innerText !== "" &&
+                cells[8].innerText !== ""
+              ) {
+                gameEnded = -1;
+              }
+            }
+          }
+          if (gameEnded === 1) {
+            let winnerTitle = document.querySelector("#turn");
+            winnerTitle.innerText = "winner is " + winner;
+            const restartButton = document.querySelector(".restart");
+            restartButton.style.display = "flex";
+          } else if (gameEnded === -1) {
+            let winnerTitle = document.querySelector("#turn");
+            winnerTitle.innerText = "Draw ";
+            const restartButton = document.querySelector(".restart");
+            restartButton.style.display = "flex";
+          } else {
+            //change title
+            turnLetter = document.querySelector("#turn");
+            turnLetter.innerText = "Now it's is " + turn + " turn";
+          }
+        }
+
+        // restart function
+        function restartBoard(event) {
+          let cells = document.querySelectorAll(".cell");
+          for (i = 0; i < 9; i++) {
+            cells[i].innerText = "";
+            cells[i].style.backgroundColor = "beige";
+          }
+          const restartButton = document.querySelector(".restart");
+          restartButton.style.display = "none";
+          winner = "";
+          turn = "X";
+          gameEnded = 0;
+        }
+      </script>
+    </div>
+  </body>
+</html>
