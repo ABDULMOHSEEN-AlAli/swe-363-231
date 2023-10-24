@@ -166,3 +166,37 @@ nav:hover li a {
   background-color: #525252;
   margin: 0 auto;
 }
+
+.blog-artical img {
+  width: 60%;
+  max-width: 500px;
+  position: relative;
+
+  top: 0;
+  left: 0;
+  border-radius: 24px;
+}
+
+.blog-artical > * {
+  margin: 12px 0px;
+}
+.blog-artical {
+  align-items: center;
+}
+
+.blog-artical p {
+  color: black;
+  text-align: left;
+  padding: 15px 15px 5px 15px;
+}
+
+.blog-artical h3 {
+  color: blue;
+  text-align: left;
+  padding: 0px 0px 0px 15px;
+}
+
+#date {
+  text-align: left;
+  padding: 0px 25px 0px 25px;
+}
