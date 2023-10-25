@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style-ar.css" />
+    <title>JS3</title>
+  </head>
+  <nav>
+    <li><img src="../assets/images/hamburger.jpg" height="40" /><br /></li>
+    <li><a href="/src/index.html">Home</a></li>
+    <li><a href="projects.html"> My projects </a></li>
+    <li><a href="contactMe.html">Contact me</a></li>
+    <li><a href="/src/ReachMeOut.html">Reach me out</a></li>
+    <li><a href="/src/index-ar.html">عربي</a></li>
+  </nav>
+  <body>
+    <h2>Today's quote</h2>
+    <!-- <canvas style="border: 1px solid black"></canvas> -->
+  </body>
+</html>
+
+<script>
+  let div = document.createElement("div");
+  div.classList.add("quote");
+  document.querySelector("body").appendChild(div);
+  async function quoteFetch() {
+    let resText = await fetch("https://zenquotes.io/api/random");
+    let jsonRes = await resText.json();
+    let quoteText = jsonRes[0]["q"];
+    let author = jsonRes[0]["a"];
+    let resImage = await fetch("https://zenquotes.io/api/image");
+
+    let imageUrl = resImage["url"];
+
+    let element = `<div>
+    <img src="${imageUrl}" alt="Sample Image">
+    <h2>${quoteText}</h2>
+    <h3>${author}</h3>
+
+    </div>`;
+
+    console.log(imageUrl);
+
+    return element;
+  }
+
+  async function resolvePromise() {
+    let object = await quoteFetch();
+    div.insertAdjacentHTML("afterbegin", object);
+  }
+
+  resolvePromise();
+</script>
