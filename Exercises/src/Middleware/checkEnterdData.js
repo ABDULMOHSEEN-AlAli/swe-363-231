@@ -1,7 +1,5 @@
-function checkData(req, res, next, information) {
-  if (information[0] != null) {
-    next();
-  }
+function checkData(req, res, next, { fullName, email, phoneNumber }) {
+  next();
 }
 
 module.exports = checkData;

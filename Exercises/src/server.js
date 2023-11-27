@@ -29,9 +29,14 @@ const router = express.Router();
 
 // routes
 //
-// router.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname + "/index.html"));
-// });
+const checkData = require("./Middleware/checkEnterdData");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+router.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "/index.html"));
+});
 
 router.get("/src/index.html", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
@@ -39,6 +44,13 @@ router.get("/src/index.html", (req, res) => {
 
 router.get("/src/projects.html", (req, res) => {
   res.sendFile(path.join(__dirname + "/projects.html"));
+});
+
+router.post("/src/contactMe.html", (req, res) => {
+  const { fullName, email, phoneNumber } = req.body;
+  console.log(fullName + ":" + email);
+  app.use(checkData);
+  res.redirect("/");
 });
 
 router.get("/src/contactMe.html", (req, res) => {
@@ -50,7 +62,6 @@ router.get("/src/ReachMeOut.html", (req, res) => {
 });
 
 app.use("/", router);
-
 
 app.listen(3000, () => {
   console.log("server is running on port 3000");
