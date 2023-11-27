@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
+    <script src="contactMe.js"></script>
+
     <meta
       name="description"
       content="A personal website that includes my personal information and some of my experiences"
@@ -34,17 +36,17 @@
       <form action="">
         <section>
           <h5>Enter your full name:</h5>
-          <input type="text" />
-          <h5>Enter your Email addres:</h5>
-          <input type="email" />
+          <input type="text" id="fullName" />
+          <h5>Enter your Email address:</h5>
+          <input type="email" id="email" />
           <h5>Enter your phoneNumber</h5>
-          <input type="tel" />
+          <input type="tel" id="phoneNumber" />
         </section>
         <h5>
           Write the message here and we will contact you as soon as possible
         </h5>
         <textarea id="message" cols="20" rows="8"></textarea><br />
-        <button>submit</button>
+        <button onclick="submitForm()">submit</button>
       </form>
 
       <a href="index.html"> Back home</a>
