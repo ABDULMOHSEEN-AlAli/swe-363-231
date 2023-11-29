@@ -5,7 +5,7 @@ const router = express.Router();
 
 // usin normal express
 
-// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("./src"));
 
 // app.get("/", (req, res) => {
 // res.sendFile(path.join(__dirname + "/index.html"));
